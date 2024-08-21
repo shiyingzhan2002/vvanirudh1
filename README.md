@@ -2,7 +2,8 @@
 
 Bienvenue sur mon profil GitHub ! Ici, vous pouvez découvrir mes projets en développement web, cybersécurité et programmation.
 
-![tryhackme stats](<iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3780968" style='border:none;'></iframe>)
+![TryHackMe Badge](https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3780968)
+
 
 ## 🔭 Je travaille actuellement sur...
 - La création de projets de développement web utilisant HTML, CSS, JavaScript et PHP.
