@@ -1,0 +1,20 @@
+name: Mettre à jour le badge TryHackMe
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Exécute tous les jours à minuit
+  workflow_dispatch:  # Permet une exécution manuelle
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Vérifier le code
+        uses: actions/checkout@v2
+
+      - name: Mettre à jour le badge TryHackMe
+        uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
+        with:
+          username: 'TON_NOM_UTILISATEUR_TRYHACKME'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
