@@ -16,5 +16,5 @@ jobs:
       - name: Mettre à jour le badge TryHackMe
         uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
         with:
-          username: 'TON_NOM_UTILISATEUR_TRYHACKME'
+          username: 'savon'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
