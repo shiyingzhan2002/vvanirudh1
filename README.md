@@ -2,7 +2,7 @@
 
 Bienvenue sur mon profil GitHub ! Ici, vous pouvez découvrir mes projets en développement web, cybersécurité et programmation.
 
-![Badge TryHackMe](https://tryhackme.com/api/v2/badges/public-profile?userPublicId=savon)
+![Badge TryHackMe](https://raw.githubusercontent.com/FCiraci/FCiraci/main/assets/tryhackme-badge.png)
 
 
 
