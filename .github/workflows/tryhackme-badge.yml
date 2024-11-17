@@ -13,10 +13,6 @@ jobs:
       - name: Vérifier le code
         uses: actions/checkout@v2
 
-      - name: Créer le répertoire assets si nécessaire
-        run: |
-          mkdir -p assets
-
       - name: Télécharger le badge TryHackMe
         run: |
           curl -o assets/tryhackme-badge.png https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3780968
