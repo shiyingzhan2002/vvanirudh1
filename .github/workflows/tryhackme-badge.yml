@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *'  # Exécute tous les jours à minuit
   workflow_dispatch:  # Permet une exécution manuelle
 
+permissions:
+  contents: write
+
 jobs:
   update-badge:
     runs-on: ubuntu-latest
@@ -13,8 +16,12 @@ jobs:
       - name: Vérifier le code
         uses: actions/checkout@v2
 
-      - name: Mettre à jour le badge TryHackMe
-        uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
-        with:
-          username: 'savon'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Télécharger le badge TryHackMe
+        run: |
+          curl -o assets/tryhackme-badge.png https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3780968
+
+      - name: Ajouter le badge au dépôt
+        run: |
+          git add assets/tryhackme-badge.png
+          git commit -m "Mise à jour du badge TryHackMe"
+          git push
