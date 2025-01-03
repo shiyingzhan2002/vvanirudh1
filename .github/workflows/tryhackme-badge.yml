@@ -16,9 +16,14 @@ jobs:
       - name: Vérifier le code
         uses: actions/checkout@v2
 
+      - name: Configurer l'identité de l'auteur
+        run: |
+          git config user.name "FCiraci"
+          git config user.email "furkan.ciraci@icloud.com"
+
       - name: Télécharger le badge TryHackMe
         run: |
-          curl -o assets/tryhackme-badge.png https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3780968
+          curl -o assets/tryhackme-badge.png https://tryhackme.com/api/v2/badges/public-profile?userPublicId=TON_USER_ID
 
       - name: Ajouter le badge au dépôt
         run: |
