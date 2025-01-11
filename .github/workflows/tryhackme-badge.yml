@@ -23,7 +23,7 @@ jobs:
 
       - name: Télécharger le badge TryHackMe
         run: |
-          curl -o assets/tryhackme-badge.png https://tryhackme.com/api/v2/badges/public-profile?userPublicId=TON_USER_ID
+          curl -o assets/tryhackme-badge.png https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3780968
 
       - name: Ajouter le badge au dépôt
         run: |
