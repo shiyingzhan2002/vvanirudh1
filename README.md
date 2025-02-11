@@ -9,8 +9,8 @@ Bienvenue sur mon profil GitHub ! Découvrez mes projets en développement web, 
 - L'amélioration de mes compétences en cybersécurité, notamment en pentesting et scanning de vulnérabilités.
 
 ## 📫 Comment me contacter :
-- Email : [Ton email ici]
-- LinkedIn : [Ton profil LinkedIn ici]
+- Email : furkan.ciraci@icloud.com
+- LinkedIn : https://www.linkedin.com/in/furkan-ciraci/
 
 ## ⚡ Fun fact :
 - Passionné par l'apprentissage de nouvelles technologies et la résolution de problèmes complexes, j'adore collaborer sur des projets innovants.
