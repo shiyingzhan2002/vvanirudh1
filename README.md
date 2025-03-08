@@ -14,4 +14,5 @@ Bienvenue sur mon profil GitHub ! Découvrez mes projets en développement web, 
 - LinkedIn : https://www.linkedin.com/in/furkan-ciraci/
 
 ## ⚡ Fun fact :
-- Passionné par l'apprentissage de nouvelles technologies et la résolution de problèmes complexes, j'adore collaborer sur des projets innovants.
+- Saviez-vous qu’une attaque informatique se produit toutes les 39 secondes ? Si vous êtes en train de lire ceci, il y a peut-être déjà un hacker qui essaie de vous piquer vos cookies… 🍪
+
