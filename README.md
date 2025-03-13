@@ -6,7 +6,6 @@ Bienvenue sur mon profil GitHub ! Découvrez mes projets en développement web, 
 ![Badge TryHackMe](https://raw.githubusercontent.com/FCiraci/FCiraci/main/assets/tryhackme-badge.png)
 
 ## 🔭 En ce moment, je travaille sur...
-- Des projets de développement web utilisant HTML, CSS, JavaScript et PHP.
 - L'amélioration de mes compétences en cybersécurité, notamment en pentesting et scanning de vulnérabilités.
 
 ## 📫 Comment me contacter :
