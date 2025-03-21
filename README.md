@@ -1,6 +1,6 @@
 # Salut à tous 👋
 
-Bienvenue sur mon profil GitHub ! Découvrez mes projets en développement web, cybersécurité et programmation.
+Bienvenue sur mon profil GitHub ! Découvrez mes projets en cybersécurité et programmation.
 
 ## 🎯 TryHackMe
 ![Badge TryHackMe](https://raw.githubusercontent.com/FCiraci/FCiraci/main/assets/tryhackme-badge.png)
