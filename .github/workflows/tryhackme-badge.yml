@@ -26,3 +26,9 @@ jobs:
         with:
           username: 'savon'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        if: steps.diff.outputs.has_changes == 'true'
+        run: |
+          git add .
+          git commit -m "Update TryHackMe badge"
