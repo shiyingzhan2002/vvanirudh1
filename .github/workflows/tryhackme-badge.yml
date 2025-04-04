@@ -27,8 +27,16 @@ jobs:
           username: 'savon'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit changes
-        if: steps.diff.outputs.has_changes == 'true'
+      - name: Vérifier les changements
+        run: |
+          git fetch origin
+          git diff --exit-code || echo "Changements détectés"
+
+      - name: Forcer l'ajout et le commit (si nécessaire)
         run: |
           git add .
-          git commit -m "Update TryHackMe badge"
+          git commit -m "Update TryHackMe badge" || echo "Rien à committer"
+
+      - name: Forcer le push sur la branche main
+        run: |
+          git push origin main --force
