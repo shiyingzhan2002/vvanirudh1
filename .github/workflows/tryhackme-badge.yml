@@ -2,9 +2,9 @@ name: Mettre à jour le badge TryHackMe
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Exécute tous les jours à minuit
-  workflow_dispatch:  # Permet une exécution manuelle
-
+    - cron: '0 0 * * *' 
+  workflow_dispatch:
+  
 permissions:
   contents: write
 
@@ -21,18 +21,23 @@ jobs:
           git config user.name "FCiraci"
           git config user.email "furkan.ciraci@icloud.com"
 
+      - name: Supprimer l'image existante
+        run: |
+          ASSET_PATH="assets/tryhackme-badge.png"
+          if [ -f "$ASSET_PATH" ]; then
+            echo "L'image existante a été trouvée. Suppression..."
+            rm "$ASSET_PATH"
+          else
+            echo "Aucune image existante à supprimer."
+          fi
+
       - name: Mettre à jour le badge TryHackMe
         uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
         with:
           username: 'savon'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Vérifier les changements
-        run: |
-          git fetch origin
-          git diff --exit-code || echo "Changements détectés"
-
-      - name: Forcer l'ajout et le commit (si nécessaire)
+      - name: Forcer l'ajout et le commit
         run: |
           git add .
           git commit -m "Update TryHackMe badge" || echo "Rien à committer"
