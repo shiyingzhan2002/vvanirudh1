@@ -19,7 +19,7 @@ jobs:
       - name: Configurer l'identité de l'auteur
         run: |
           git config user.name "FCiraci"
-          git config user.email "furkan.ciraci@icloud.com"
+          git config user.email "${{ secrets.EMAIL }}"
 
       - name: Supprimer l'image existante
         run: |
