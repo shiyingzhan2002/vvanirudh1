@@ -41,7 +41,11 @@ jobs:
         run: |
           git add .
           git commit -m "Update TryHackMe badge" || echo "Rien à committer"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Forcer le push sur la branche main
         run: |
           git push origin main --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
