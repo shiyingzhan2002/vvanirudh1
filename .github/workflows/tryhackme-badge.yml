@@ -37,6 +37,11 @@ jobs:
           username: 'savon'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Vérifiez les modifications
+        run: |
+          git status
+          git diff
+
       - name: Forcer l'ajout et le commit
         run: |
           git add .
