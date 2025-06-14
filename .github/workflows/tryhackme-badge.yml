@@ -2,9 +2,9 @@ name: Mettre à jour le badge TryHackMe
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-  
+    - cron: '0 0 * * *'  # Exécute tous les jours à minuit
+  workflow_dispatch:  # Permet une exécution manuelle
+
 permissions:
   contents: write
 
@@ -14,22 +14,12 @@ jobs:
 
     steps:
       - name: Vérifier le code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Configurer l'identité de l'auteur
         run: |
           git config user.name "FCiraci"
-          git config user.email "${{ secrets.EMAIL }}"
-
-      - name: Supprimer l'image existante
-        run: |
-          ASSET_PATH="assets/tryhackme-badge.png"
-          if [ -f "$ASSET_PATH" ]; then
-            echo "L'image existante a été trouvée. Suppression..."
-            rm "$ASSET_PATH"
-          else
-            echo "Aucune image existante à supprimer."
-          fi
+          git config user.email "furkan.ciraci@icloud.com"
 
       - name: Mettre à jour le badge TryHackMe
         uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
@@ -37,20 +27,16 @@ jobs:
           username: 'savon'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Vérifiez les modifications
+      - name: Vérifier les changements
         run: |
-          git status
-          git diff
+          git fetch origin
+          git diff --exit-code || echo "Changements détectés"
 
-      - name: Forcer l'ajout et le commit
+      - name: Forcer l'ajout et le commit (si nécessaire)
         run: |
           git add .
           git commit -m "Update TryHackMe badge" || echo "Rien à committer"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Forcer le push sur la branche main
         run: |
           git push origin main --force
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
