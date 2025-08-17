@@ -1,19 +1,56 @@
-name: TryHackMe Update Badge
+name: Mettre à jour le badge TryHackMe
 
 on:
   schedule:
-    # Make it run every 24 hour
     - cron: '0 0 * * *'
   workflow_dispatch:
+  
+permissions:
+  contents: write
+
 jobs:
-  tryhackme-badge-update:
-    name: Update this repo's tryhackme badge with the latest tryhackme image badge
+  update-badge:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: p4p1/tryhackme-badge-workflow@main
+      - name: Vérifier le code
+        uses: actions/checkout@v3
+
+      - name: Configurer l'identité de l'auteur
+        run: |
+          git config user.name "FCiraci"
+          git config user.email "${{ secrets.EMAIL }}"
+
+      - name: Supprimer l'image existante
+        run: |
+          ASSET_PATH="assets/tryhackme-badge.png"
+          if [ -f "$ASSET_PATH" ]; then
+            echo "L'image existante a été trouvée. Suppression..."
+            rm "$ASSET_PATH"
+          else
+            echo "Aucune image existante à supprimer."
+          fi
+
+      - name: Mettre à jour le badge TryHackMe
+        uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
         with:
-          # Replace with your tryhackme username
-          username: "savon"
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # Do not paste your github token here - this is a placeholder
-                                                  # and will pull your github token automatically
+          username: 'savon'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Vérifier les modifications
+        run: |
+          git status
+          git diff
+
+      - name: Forcer l'ajout et le commit
+        run: |
+          git add .
+          git commit -m "Update TryHackMe badge" || echo "Rien à committer"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Forcer le push sur la branche main
+        run: |
+          git push origin main --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
