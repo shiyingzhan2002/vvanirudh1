@@ -3,7 +3,8 @@
 Bienvenue sur mon profil GitHub ! Découvrez mes projets en cybersécurité et programmation.
 
 ## 🎯 TryHackMe
-![Badge TryHackMe](https://raw.githubusercontent.com/FCiraci/FCiraci/main/assets/tryhackme-badge.png)
+![TryHackMe Badge](https://tryhackme-badges.s3.amazonaws.com/savon.png)
+
 
 ## 🔭 En ce moment, je travaille sur...
 - L'amélioration de mes compétences en cybersécurité, notamment en pentesting et scanning de vulnérabilités.
