@@ -1,0 +1,29 @@
+name: Update TryHackMe Badge
+
+on:
+  schedule:
+    - cron: "0 0 * * *" 
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update badge timestamp
+        run: |
+          TIMESTAMP=$(date +%s)
+          sed -i "s|https://tryhackme-badges.s3.amazonaws.com/savon.png?.*|https://tryhackme-badges.s3.amazonaws.com/savon.png?$TIMESTAMP|" README.md
+
+      - name: Commit and push changes
+        env:
+          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+        run: |
+          git config --local user.name "$GIT_USER_NAME"
+          git config --local user.email "$GIT_USER_EMAIL"
+          git add README.md
+          git commit -m "Update TryHackMe Badge timestamp"
+          git push
