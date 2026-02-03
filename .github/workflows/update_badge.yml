@@ -16,7 +16,7 @@ jobs:
       - name: Update badge timestamp
         run: |
           TIMESTAMP=$(date +%s)
-          sed -i "s|https://tryhackme-badges.s3.amazonaws.com/savon.png?.*|https://tryhackme-badges.s3.amazonaws.com/savon.png?$TIMESTAMP)](https://tryhackme.com/r/p/savon) |" README.md
+          sed -i "s|https://tryhackme-badges.s3.amazonaws.com/savon.png?.*|https://tryhackme-badges.s3.amazonaws.com/savon.png?$TIMESTAMP)](https://tryhackme.com/r/p/savon)|" README.md
 
       - name: Commit and push changes
         env:
