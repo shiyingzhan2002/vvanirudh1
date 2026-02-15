@@ -16,7 +16,7 @@ jobs:
       - name: Update badge timestamp
         run: |
           TIMESTAMP=$(date +%s)
-          sed -i "s|https://tryhackme-badges.s3.amazonaws.com/savon.png?.*|https://tryhackme-badges.s3.amazonaws.com/savon.png?$TIMESTAMP)](https://tryhackme.com/r/p/savon )|" README.md
+          sed -i "s|https://tryhackme-badges.s3.amazonaws.com/savon.png?.*|https://tryhackme-badges.s3.amazonaws.com/savon.png?$TIMESTAMP)](https://tryhackme.com/r/p/savon)|" README.md
 
       - name: Commit and push changes
         env:
@@ -26,8 +26,8 @@ jobs:
           git config --local user.name "$GIT_USER_NAME"
           git config --local user.email "$GIT_USER_EMAIL"
           git stash push -m "Auto-stash before pull"
-          git pull origin main
-          git stash pop
+          git pull origin main --rebase
+          git stash pop || true
           git add README.md
           git commit -m "Update TryHackMe Badge timestamp"
           git push
