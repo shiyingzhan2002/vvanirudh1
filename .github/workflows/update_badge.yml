@@ -25,10 +25,7 @@ jobs:
         run: |
           git config --local user.name "$GIT_USER_NAME"
           git config --local user.email "$GIT_USER_EMAIL"
-          git stash push -m "Auto-stash before pull"
           git pull origin main --rebase
-          git stash pop || true
           git add README.md
           git commit -m "Update TryHackMe Badge timestamp"
-          git pull --strategy-option theirs origin main
-          git push
+          git push --force
