@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
 
       - name: Update badge timestamp
         run: |
@@ -25,7 +27,8 @@ jobs:
         run: |
           git config --local user.name "$GIT_USER_NAME"
           git config --local user.email "$GIT_USER_EMAIL"
-          git pull origin main --rebase
           git add README.md
           git commit -m "Update TryHackMe Badge timestamp"
+          git fetch origin main
+          git rebase origin/main
           git push --force
