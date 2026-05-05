@@ -15,6 +15,11 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all branches and tags
 
+      - name: Reset to the latest remote branch
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
       - name: Update badge timestamp
         run: |
           TIMESTAMP=$(date +%s)
@@ -29,6 +34,4 @@ jobs:
           git config --local user.email "$GIT_USER_EMAIL"
           git add README.md
           git commit -m "Update TryHackMe Badge timestamp"
-          git fetch origin main
-          git merge --strategy-option theirs origin/main
           git push --force
