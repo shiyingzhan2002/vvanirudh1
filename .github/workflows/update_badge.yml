@@ -15,9 +15,10 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all branches and tags
 
-      - name: Reset to the latest remote branch
+      - name: Reset branch to remote main
         run: |
           git fetch origin main
+          git checkout main
           git reset --hard origin/main
 
       - name: Update badge timestamp
@@ -33,5 +34,5 @@ jobs:
           git config --local user.name "$GIT_USER_NAME"
           git config --local user.email "$GIT_USER_EMAIL"
           git add README.md
-          git commit -m "Update TryHackMe Badge timestamp"
+          git commit -m "Update TryHackMe Badge timestamp" || echo "No changes to commit"
           git push --force
